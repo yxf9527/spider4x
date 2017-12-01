@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="spider4x:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/spider4x_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="spider4x" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="spider4x/web/Web" />
+    </root>
+  </artifact>
+</component>

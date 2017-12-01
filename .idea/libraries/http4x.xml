@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="http4x">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/http4xjar/commons-codec-1.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/http4xjar/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/http4xjar/fluent-hc-4.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/http4xjar/httpclient-4.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/http4xjar/httpclient-cache-4.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/http4xjar/httpclient-win-4.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/http4xjar/httpcore-4.4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/http4xjar/httpmime-4.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/http4xjar/jna-4.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/http4xjar/jna-platform-4.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
