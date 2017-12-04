@@ -24,26 +24,18 @@ public class HttpClientHello2 {
         //创建httpclient实例
         CloseableHttpClient httpClient = HttpClients.createDefault();
         //创建httpget实例
-        HttpGet httpGet=new HttpGet("https://www.oschina.net/");  //系統有限制
+        HttpGet httpGet=new HttpGet("http://tieba.baidu.com/p/2647232671#!/l/p1");  //系統有限制
         httpGet.setHeader("User-Agent","Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.62 Safari/537.36");
         //执行http get 请求
         CloseableHttpResponse response = null;
 
         response = httpClient.execute(httpGet);
+
         HttpEntity entity = response.getEntity();//获取返回实体
         //EntityUtils.toString(entity,"utf-8");//获取网页内容，指定编码
 //        System.out.println("网页内容\n"+ EntityUtils.toString(entity,"utf-8"));
-
-
         String html = EntityUtils.toString(entity,"utf-8");
-        getResource(html);
-//        FileUtils.string2File("D:\\a.html",html);
-
-
-        //查看响应类型
-//        System.out.println(entity.getContentType().getValue());
-//        System.out.println(response.getStatusLine().getStatusCode());
-        //HTTP/1.1 200 OK    200
+        System.out.println(html);
         response.close();
         httpClient.close();
     }
@@ -61,7 +53,7 @@ public class HttpClientHello2 {
                         src.tagName(), src.attr("abs:src"), src.attr("width"), src.attr("height"),
                         trim(src.attr("alt"), 20));
                 System.out.println("----------");
-                HttpClientHello3img.downloadImg(src.attr("abs:src"), UUID.randomUUID().toString()+".png");
+//                HttpClientHello3img.downloadImg(src.attr("abs:src"), UUID.randomUUID().toString()+".png");
 
             }
             else{
