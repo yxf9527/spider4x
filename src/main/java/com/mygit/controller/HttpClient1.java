@@ -12,7 +12,7 @@ import java.io.IOException;
 
 /**
  * Created by yxf on 2017/11/30.
- * httpClient简单请求获取html内容
+ * httpClient 简单请求获取html内容
  */
 public class HttpClient1 {
 
@@ -25,7 +25,6 @@ public class HttpClient1 {
         CloseableHttpResponse response = null;
         response = httpClient.execute(httpGet);
         HttpEntity entity = response.getEntity();// 获取返回实体
-        // EntityUtils.toString(entity,"utf-8");//获取网页内容，指定编码
         System.out.println("网页内容" + EntityUtils.toString(entity, "utf-8"));
         response.close();
         httpClient.close();
