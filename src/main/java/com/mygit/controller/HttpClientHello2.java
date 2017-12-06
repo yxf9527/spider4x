@@ -57,7 +57,6 @@ public class HttpClientHello2 {
 
         HttpEntity entity = response.getEntity();//获取返回实体
         //EntityUtils.toString(entity,"utf-8");//获取网页内容，指定编码
-//        System.out.println("网页内容\n"+ EntityUtils.toString(entity,"utf-8"));
         String html = EntityUtils.toString(entity,"utf-8");
         System.out.println(html);
         response.close();
