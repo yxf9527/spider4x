@@ -1,4 +1,4 @@
-package com.mygit.controller;
+package com.mygit.httpclient;
 
 import org.apache.http.Consts;
 import org.apache.http.HttpEntity;

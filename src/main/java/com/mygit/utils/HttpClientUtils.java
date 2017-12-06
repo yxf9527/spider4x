@@ -1,6 +1,6 @@
 package com.mygit.utils;
 
-import com.mygit.controller.HttpClientHello3img;
+import com.mygit.httpclient.HttpClientImage;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -132,12 +132,13 @@ public class HttpClientUtils {
 
     /**
      * 下载图片方法1
+     * url
      * */
     public static void downloadImgFromList(String url) throws Exception{
         LinkedList<String> urlList = putImgUrlIntoQueue(url);
         if(urlList!=null && urlList.size()>0){
             for (String item : urlList ) {
-                HttpClientHello3img.downloadImg(item,UUID.randomUUID().toString()+".png");
+                HttpClientImage.downloadImg(item,UUID.randomUUID().toString()+".png");
             }
         }
     }

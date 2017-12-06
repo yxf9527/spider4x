@@ -1,8 +1,6 @@
-package com.mygit.controller;
+package com.mygit.httpclient;
 
-import com.mygit.utils.FileUtils;
 import org.apache.http.HttpEntity;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -12,9 +10,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
-import java.io.IOException;
-import java.util.UUID;
 
 /**
  * Created by yxf on 2017/11/30.

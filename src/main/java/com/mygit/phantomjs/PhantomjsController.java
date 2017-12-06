@@ -1,5 +1,6 @@
-package com.mygit.controller;
+package com.mygit.phantomjs;
 
+import com.mygit.httpclient.HttpClientImage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

@@ -43,3 +43,7 @@
 [INFO  - 2017-12-06T02:57:57.598Z] Session [43542490-da31-11e7-81b1-2bd484fe3049] - page.customHeaders:  - {}
 [INFO  - 2017-12-06T02:57:57.598Z] Session [43542490-da31-11e7-81b1-2bd484fe3049] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"windows-7-32bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
 [INFO  - 2017-12-06T02:57:57.598Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 43542490-da31-11e7-81b1-2bd484fe3049
+[INFO  - 2017-12-06T03:02:57.071Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-12-06T03:07:57.074Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-12-06T03:12:57.108Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-12-06T03:17:57.109Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
