@@ -1,6 +1,5 @@
 package com.mygit.controller;
 
-import com.mygit.utils.HttpClientUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,7 +26,7 @@ public class PhantomjsController {
         List<WebElement> images = driver.findElements(By.tagName("img"));
         for (WebElement element:images) {
             System.out.println(element.getAttribute("src"));
-            HttpClientHello3img.downloadImg(element.getAttribute("src"), UUID.randomUUID().toString()+".png");
+            HttpClientImage.downloadImg(element.getAttribute("src"), UUID.randomUUID().toString()+".png");
         }
     }
 

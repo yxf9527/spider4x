@@ -19,7 +19,7 @@ import java.util.UUID;
 /**
  * Created by yxf on 2017/11/30.
  */
-public class HttpClientHello2 {
+public class HttpClientHeader {
     public static void main(String[] args) throws Exception {
         //创建httpclient实例
         CloseableHttpClient httpClient = HttpClients.createDefault();

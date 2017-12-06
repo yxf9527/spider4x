@@ -15,7 +15,7 @@ import java.io.InputStream;
 /**
  * Created by yxf on 2017/11/30.
  */
-public class HttpClientHello3img {
+public class HttpClientImage {
 
     public static void main(String[] args) throws ClientProtocolException, IOException {
         //创建httpclient实例
