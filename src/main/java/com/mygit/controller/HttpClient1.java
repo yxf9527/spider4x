@@ -12,6 +12,7 @@ import java.io.IOException;
 
 /**
  * Created by yxf on 2017/11/30.
+ * httpClient简单请求获取html内容
  */
 public class HttpClient1 {
 
