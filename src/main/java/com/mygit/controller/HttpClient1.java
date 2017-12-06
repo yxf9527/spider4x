@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * Created by yxf on 2017/11/30.
  */
-public class HttpClientHello {
+public class HttpClient1 {
 
     public static void main(String[] args) throws ClientProtocolException, IOException {
         // 创建httpclient实例
