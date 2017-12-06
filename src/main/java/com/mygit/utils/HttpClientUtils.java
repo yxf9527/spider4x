@@ -166,9 +166,9 @@ public class HttpClientUtils {
 
     public static void main(String[] args) throws Exception {
 //        System.out.println(getHtmlContentByUrl("https://www.oschina.net/"));
-        printResourceFromHtml(getHtmlContentByUrl("http://tieba.baidu.com/p/2647232671#!/l/p1"));
+//        printResourceFromHtml(getHtmlContentByUrl("http://tieba.baidu.com/p/2647232671#!/l/p1"));
 //        printListString(putImgUrlIntoQueue("https://www.oschina.net/"));
-//        downloadImgFromList("http://tieba.baidu.com/p/2647232671#!/l/p1");
+        downloadImgFromList("http://tieba.baidu.com/p/5420705803?red_tag=o0471958342");
     }
 
 }

@@ -6,6 +6,17 @@ import com.gargoylesoftware.htmlunit.DefaultCredentialsProvider;
 import com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.*;
+import org.apache.http.Consts;
+import org.apache.http.HttpEntity;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -14,6 +25,8 @@ import org.jsoup.safety.Whitelist;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by yxf on 2017/12/4.
@@ -21,7 +34,26 @@ import java.io.IOException;
 public class WebClientTest {
 
     public static void main(String[] args) throws Exception {
-        testSerach();
+
+        //创建httpclient实例
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        //创建httpget实例
+
+        HttpPost httpPost = getPost();
+        httpPost.setHeader("User-Agent","Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.62 Safari/537.36");
+        //执行http get 请求
+        CloseableHttpResponse response = null;
+
+        response = httpClient.execute(httpPost);
+
+        HttpEntity entity = response.getEntity();//获取返回实体
+        //EntityUtils.toString(entity,"utf-8");//获取网页内容，指定编码
+//        System.out.println("网页内容\n"+ EntityUtils.toString(entity,"utf-8"));
+        String html = EntityUtils.toString(entity,"utf-8");
+        System.out.println(html);
+        response.close();
+        httpClient.close();
+
     }
 
     public static void testSerach(){
@@ -31,8 +63,7 @@ public class WebClientTest {
             // 这里是配置一下不加载css和javaScript,配置起来很简单，是不是
             webclient.getOptions().setCssEnabled(false);
             webclient.getOptions().setJavaScriptEnabled(false);
-            HtmlPage htmlpage = webclient
-                    .getPage("http://tieba.baidu.com/p/2647232671#!/l/p1");
+            HtmlPage htmlpage = webclient.getPage("http://172.16.0.101:8686/pubh5/bt_zbbh.do?action=zbbhInit&f=m#MV8wXzE2MDI=");
 
             String pageXml = htmlpage.asXml(); // 以xml的形式获取响应文本
             System.out.println(pageXml);
@@ -205,6 +236,42 @@ public class WebClientTest {
         Document doc = con.get();
         Elements loginBtn = doc.select("#loginBtn");
         System.out.println(loginBtn.text());// 获取节点中的文本，类似于js中的方法
+    }
+
+
+    // 获取我们需要的Post流，如果你是把我的代码复制过去，请记得更改为你的用户名和密码
+    private static HttpPost getPost() {
+        HttpPost post = new HttpPost("http://172.16.0.101:8686/pubh5/bt_zbbh.do?action=zbbhInit&f=m#MV8wXzE2MDI=");
+
+        // 首先我们初始化请求头
+        post.addHeader("Referer", "http://172.16.0.101:8686/pubh5/bt_zbbh.do?action=zbbhInit&f=m#MV8wXzE2MDI=");
+        post.addHeader("Host", "172.16.0.101:8686");
+        post.addHeader("Origin", "http://172.16.0.101:8686/pubh5");
+
+        // 然后我们填入我们想要传递的表单参数（主要也就是传递我们的用户名和密码）
+        // 我们可以先建立一个List，之后通过post.setEntity方法传入即可
+        // 写在一起主要是为了大家看起来方便，大家在正式使用的当然是要分开处理，优化代码结构的
+        List<NameValuePair> paramsList = new ArrayList<NameValuePair>();
+        /*
+         * 添加我们要的参数，这些可以通过查看浏览器中的网络看到，如下面我的截图中看到的一样
+         * 不论你用的是firebug,httpWatch或者是谷歌自带的查看器也好,都能查看到（后面会推荐辅助工具来查看）
+         * 要把表单需要的参数都填齐，顺序不影响
+         */
+        paramsList.add(new BasicNameValuePair("Submit", ""));
+        paramsList.add(new BasicNameValuePair("fowardURL", "http://172.16.0.101:8686/pubh5/bt_zbbh.do?action=zbbhInit&f=m#MV8wXzE2MDI="));
+        paramsList.add(new BasicNameValuePair("from", ""));
+        paramsList.add(new BasicNameValuePair("method", "name"));
+        paramsList.add(new BasicNameValuePair("Cookie", "td_cookie=18446744072622254185; JSESSIONID=EBAE5C360FAADB9673048F29E9A7E409; winning_sider=1"));
+        paramsList.add(new BasicNameValuePair("rmflag", "1"));
+        paramsList.add(new BasicNameValuePair("__sid", "1#1#1.0#a6c606d9-1efa-4e12-8ad5-3eefd12b8254"));
+
+        // 你可以申请一个天涯的账号 并在下两行代码中替换为你的用户名和密码
+        paramsList.add(new BasicNameValuePair("vwriter", "222"));// 替换为你的用户名
+        paramsList.add(new BasicNameValuePair("vpassword", "1"));// 你的密码
+
+        // 将这个参数list设置到post中
+        post.setEntity(new UrlEncodedFormEntity(paramsList, Consts.UTF_8));
+        return post;
     }
 
 }
